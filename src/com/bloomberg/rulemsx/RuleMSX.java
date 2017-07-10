@@ -15,4 +15,10 @@ public class RuleMSX {
 		dataPoints = new ConcurrentHashMap<String, DataPoint>();
 	}
 	
+	public DataPoint addDataPoint(String name, DataPointSource source) {
+		DataPoint newDataPoint = new DataPoint(name, source);
+		this.dataPoints.put(name, newDataPoint);
+		return newDataPoint;
+	}
+
 }
