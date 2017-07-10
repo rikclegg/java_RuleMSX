@@ -17,4 +17,17 @@ public class DataPoint {
 		this.dependencies = new ArrayList<DataPoint>();
 		this.source = source;
 	}
+
+	public String getName() {
+		return this.name;
+	}
+	
+	public DataPointState getState() {
+		return this.state;
+	}
+	
+	public DataPointSource getSource() {
+		return this.source;
+	}
+
 }
