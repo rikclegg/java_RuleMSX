@@ -1,4 +1,4 @@
-package com.bloomberg.rulemsx;
+package com.bloomberg.samples.rulemsx;
 
 public class Rule {
 	
