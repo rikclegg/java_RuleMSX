@@ -22,4 +22,8 @@ public class DataSet {
 	public String getName() {
 		return this.name;
 	}
+	
+	public DataPoint getDataPoint(String name) {
+		return dataPoints.get(name);
+	}
 }

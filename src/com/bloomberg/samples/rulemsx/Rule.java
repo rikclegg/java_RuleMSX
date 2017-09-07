@@ -1,33 +1,38 @@
 package com.bloomberg.samples.rulemsx;
 
-public class Rule {
+import java.util.ArrayList;
+
+public class Rule extends RuleContainer {
 	
 	private String name;
-	private RuleSource source;
-	private RuleAction action;
+	private RuleEvaluator evaluator;
+	private ArrayList<RuleAction> actions = new ArrayList<RuleAction>();
+	private ArrayList<String> dependencies = new ArrayList<String>();
 	
-	public Rule(String name, RuleSource source, RuleAction action) {
+	public Rule(String name, RuleEvaluator evaluator) {
 		this.name = name;
-		this.source = source;
-		this.action = action;
+		this.evaluator = evaluator;
+	}
+
+	public Rule(String name, RuleEvaluator evaluator, RuleAction action) {
+		this.name = name;
+		this.evaluator = evaluator;
+		this.actions.add(action);
 	}
 	
 	public String getName() {
 		return this.name;
 	}
 	
-	public RuleSource getSource() {
-		return this.source;
+	public RuleEvaluator getEvaluator() {
+		return this.evaluator;
 	}
 
-	public RuleAction getAction() {
-		return this.action;
+	public ArrayList<RuleAction> getActions() {
+		return actions;
 	}
 	
-	public boolean evaluate(DataPoint dataPointL, DataPoint dataPointR) {
-		if(this.source.evaluate(dataPointL, dataPointR)) {
-			return this.action.execute(dataPointL);
-		} else return false;
-		
+	public void addDependency(String dataPointName) {
+		this.dependencies.add(dataPointName);
 	}
 }
