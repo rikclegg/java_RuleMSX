@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 abstract class RuleContainer {
 	
-	private ArrayList<Rule> rules = new ArrayList<Rule>();
+	protected ArrayList<Rule> rules = new ArrayList<Rule>();
 
 	public void addRule(Rule newRule) {
 		rules.add(newRule);

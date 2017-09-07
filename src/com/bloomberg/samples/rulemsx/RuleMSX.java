@@ -1,5 +1,6 @@
 package com.bloomberg.samples.rulemsx;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -10,30 +11,32 @@ public class RuleMSX {
 		CURRENT
 	}
 
-	ConcurrentHashMap<String,DataSet> dataSets;
-	ConcurrentHashMap<String,RuleSet> ruleSets;
+	ArrayList<DataSet> dataSets;
+	ArrayList<RuleSet> ruleSets;
 	
 	public RuleMSX() {
-		dataSets = new ConcurrentHashMap<String, DataSet>();
+		dataSets = new ArrayList<DataSet>();
+		ruleSets = new ArrayList<RuleSet>();
 	}
 	
 	public DataSet createDataSet(String name) {
 		DataSet newDataSet = new DataSet(name);
-		dataSets.put(name, newDataSet);
+		dataSets.add(newDataSet);
 		return newDataSet;
 	}
 	
 	public RuleSet createRuleSet(String name) {
 		RuleSet newRuleSet = new RuleSet(name);
-		ruleSets.put(name, newRuleSet);
+		ruleSets.add(newRuleSet);
 		return newRuleSet;
 	}
 	
-	public Iterator<DataSet> getDataSets() {
-		return this.dataSets.values().iterator();
+	public ArrayList<DataSet> getDataSets() {
+		return this.dataSets;
 	}
 	
-	public Iterator<RuleSet> getRuleSets() {
-		return this.ruleSets.values().iterator();
+	public ArrayList<RuleSet> getRuleSets() {
+		return this.ruleSets;
 	}
+
 }
